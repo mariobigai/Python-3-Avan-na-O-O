@@ -34,14 +34,12 @@ vingadores = Filme('vingadores - guerra infinita', 2018, 160)
 vingadores.dar_likes()
 vingadores.dar_likes()
 vingadores.dar_likes()
-print(100*"-")
-print(f'{vingadores.nome} - {vingadores.duracao} ; {vingadores.likes}')
-print(100*"-")
-print('\n')
 
 atlanta = Serie('atlanta', 2016, 2)
 atlanta.dar_likes()
 atlanta.dar_likes()
-print(100*"-")
-print(f'{atlanta.nome} - {atlanta.temporadas} ; {atlanta.likes}')
-print(100*"-")
+
+lista = [atlanta, vingadores]
+
+for programa in lista:
+    print(f'Nome: {programa.nome} - Likes: {programa.likes}')
