@@ -35,13 +35,10 @@ class Serie(Programa):
     def __str__(self):
         return f'Nome: {self.nome} - {self.temporadas} temporadas - Likes: {self.likes}'
 
-class Playlist():
+class Playlist(list):
     def __init__(self, nome, programas):
         self.nome = nome
-        self.programas = programas
-
-    def tamanho(self):
-        return len(self.programas)
+        super().__init__(programas)
 
 
 vingadores = Filme('vingadores - guerra infinita', 2018, 160)
@@ -62,5 +59,7 @@ atlanta.dar_likes()
 lista = [atlanta, vingadores, demolidor, tmep]
 minha_playlist = Playlist('fim de semana', lista)
 
-for programa in minha_playlist.programas:
+print(f'Tamanho da Playlist: {len(minha_playlist)}')
+
+for programa in minha_playlist:
     print(programa)
