@@ -43,8 +43,7 @@ class Playlist():
     def __getitem__(self, item):
         return self._programas[item]
 
-    @property
-    def tamanho(self):
+    def __len__(self):
         return len(self._programas)
 
 vingadores = Filme('vingadores - guerra infinita', 2018, 160)
@@ -76,3 +75,9 @@ print(f'Verificando se o filme {demolidor.nome} está na playlist: {minha_playli
 print(80*'-')
 
 print(demolidor in minha_playlist)
+
+print(80*'-')
+print(f'Verificando o tamanho da playlist: {minha_playlist.nome}')
+print(80*'-')
+
+print(len(minha_playlist))
