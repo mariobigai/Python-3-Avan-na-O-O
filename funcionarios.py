@@ -1,4 +1,8 @@
 class Funcionario:
+
+    def __init__(self, nome):
+        self.nome = nome
+
     def registra_horas(self, horas):
         print('Horas registradas.')
 
@@ -19,20 +23,24 @@ class Alura(Funcionario):
     def busca_perguntas_sem_resposta(self):
         print('Mostrando perguntas não respondidas do fórum')
 
+class Hipster:
+    def __str__(self):
+        return f'Hipster,  {self.nome}'
+
 class Junior(Alura):
     pass
 
-class Pleno(Alura, Caelum):
+class Pleno(Alura, Caelum, Hipster):
     pass
 
-jose = Junior()
-jose.mostrar_tarefas()
+jose = Junior('Jose')
+print(jose)
 
-luan = Pleno()
-luan.mostrar_tarefas()
+luan = Pleno('Luan')
+print(luan)
 
-## Entendendo o MRO do Python
+## Entendendo o Mixin
+## Luan tem o print definido pelo método __string__ que é herança de HIPSTER
+## José não tem o print definido, portanto quando imprimimos o objeto retorna o endereço da memória
 
-    ## Pleno > Alura > Funcionario > Caelum > Funcionario
-    ## Removendo a repetição (Não good head)
-    ## Pleno > Alura > Caelum > Funcionario
+## Os mixins são usados desta forma pois o seu comportamento normalmente não precisa ser de responsabilidade da classe filha, pois esta é mais específica.
