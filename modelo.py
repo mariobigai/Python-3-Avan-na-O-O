@@ -35,14 +35,13 @@ class Serie(Programa):
     def __str__(self):
         return f'Nome: {self.nome} - {self.temporadas} temporadas - Likes: {self.likes}'
 
-class Playlist(list):
+class Playlist():
     def __init__(self, nome, programas):
         self.nome = nome
         self._programas = programas
 
-    @property
-    def listagem(self):
-        return self._programas
+    def __getitem__(self, item):
+        return self._programas[item]
 
     @property
     def tamanho(self):
@@ -66,7 +65,14 @@ atlanta.dar_likes()
 lista = [atlanta, vingadores, demolidor, tmep]
 minha_playlist = Playlist('fim de semana', lista)
 
-print(f'Tamanho da Playlist: {minha_playlist.tamanho}')
+print(f'Imprimindo minha playlist: {minha_playlist.nome}')
+print(80*'-')
 
-for programa in minha_playlist.listagem:
+for programa in minha_playlist:
     print(programa)
+
+print(80*'-')
+print(f'Verificando se o filme {demolidor.nome} está na playlist: {minha_playlist.nome}')
+print(80*'-')
+
+print(demolidor in minha_playlist)
