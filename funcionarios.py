@@ -13,8 +13,8 @@ class Caelum(Funcionario):
         print(f'Mostrando cursos - {mes}' if mes else 'Mostrando cursos desse mês')
 
 class Alura(Funcionario):
-    def mostrar_tarefas(self):
-        print('Fez muita coisa, Alurete!')
+    # def mostrar_tarefas(self):
+    #     print('Fez muita coisa, Alurete!')
 
     def busca_perguntas_sem_resposta(self):
         print('Mostrando perguntas não respondidas do fórum')
@@ -26,8 +26,13 @@ class Pleno(Alura, Caelum):
     pass
 
 jose = Junior()
-jose.busca_perguntas_sem_resposta()
+jose.mostrar_tarefas()
 
 luan = Pleno()
-luan.busca_perguntas_sem_resposta()
-luan.busca_cursos_do_mes()
+luan.mostrar_tarefas()
+
+## Entendendo o MRO do Python
+
+    ## Pleno > Alura > Funcionario > Caelum > Funcionario
+    ## Removendo a repetição (Não good head)
+    ## Pleno > Alura > Caelum > Funcionario
